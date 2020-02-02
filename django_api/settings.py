@@ -1,3 +1,10 @@
+import environ
+
+env = environ.Env(
+    DEBUG=(bool, False)
+)
+environ.Env.read_env()
+
 """
 Django settings for django_api project.
 
@@ -72,14 +79,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django_api.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': env('HOST'),
+        'PORT': env('PORT'),
+        'NAME': env('DATABASE'),
+        'USER': env('USER'),
+        'PASSWORD': env('PASSWORD')
     }
 }
 
