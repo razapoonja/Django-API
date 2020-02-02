@@ -16,10 +16,10 @@ class PostView(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericA
     # permission_classes = (IsAuthenticated, )
 
     def get(self, request, *args, **kwargs):
-        return self.list(self, request, *args, **kwargs)
+        return self.list(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
-        return self.create(self, request, *args, **kwargs)
+        return self.create(request, *args, **kwargs)
 
 
     # Function based view
