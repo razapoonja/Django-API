@@ -7,6 +7,6 @@ from core.views import PostView
 urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('admin/', admin.site.urls),
-    path('', PostView.as_view(), name='test'),
+    path('', PostView.as_view(), name='post'),
     path('api/token/', obtain_auth_token, name='obtain-token')
 ]

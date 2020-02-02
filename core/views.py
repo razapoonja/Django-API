@@ -13,7 +13,7 @@ class PostView(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericA
     serializer_class = PostSerializer
     queryset = Post.objects.all()
 
-    # permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, )
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
